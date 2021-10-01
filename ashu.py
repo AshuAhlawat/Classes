@@ -14,6 +14,7 @@ button = "green"
 
 poll = "B"
 
+mute = True
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -27,6 +28,9 @@ opt = Options()
 opt.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.media_stream_mic":1,
 })
+if mute:
+    opt.add_argument("--mute-audio")
+
 #locating the webdriver
 driver = webdriver.Chrome(options=opt,executable_path=r"./chromedriver")
 
