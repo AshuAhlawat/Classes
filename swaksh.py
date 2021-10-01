@@ -9,7 +9,7 @@ pass_ = "Sandyruby@12"
 
 methods = ["Microphone","Listen only"]
 method = methods[0]
-
+no_screen = True
 button = "green"
 
 poll = "B"
@@ -21,14 +21,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-
+from pyvirtualdisplay import Display
 
 #setting permissions to the browser
 opt = Options()
 opt.add_experimental_option("prefs", { \
     "profile.default_content_setting_values.media_stream_mic":1,
 })
-
+if no_screen:
+    display = Display(visible=0, size=[800, 600])
+    display.start()
 driver = webdriver.Chrome(options=opt,executable_path=r"./chromedriver")
 
 if mute:
@@ -161,3 +163,5 @@ def onlineclassscript():
                 print("class in progress...")
 
 onlineclassscript()
+if no_screen:
+    display.close()
