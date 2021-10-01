@@ -57,14 +57,14 @@ def onlineclassscript():
     
     #connecting to login page
     driver.get("https://myclass.lpu.in")
-
+    print("[swaksh]Connecting..")
     #logging in
     username = driver.find_element_by_name("i")
     username.send_keys(id_)
     password = driver.find_element_by_name("p")
     password.send_keys(pass_)
     password.send_keys(Keys.ENTER)
-
+    print("[swaksh]connecting..")
     #finding and clicking on Classes/Meetings
     match_search = WebDriverWait(driver,20).until(
         expected_conditions.presence_of_element_located(
@@ -88,10 +88,10 @@ def onlineclassscript():
             time.sleep(1)
             search = driver.find_element_by_css_selector('a[style*="background: '+button+';"]')
             search.click()
-            print("Entered Class")
+            print("[swaksh]Entered Class")
             break
         except Exception as e:
-            print(" No Class in progress. ")
+            print("[swaksh]No Class in progress. ")
             time.sleep(180)
             onlineclassscript()
     
@@ -153,14 +153,14 @@ def onlineclassscript():
                     search = driver.find_element_by_css_selector('button[aria-label="'+poll+'"]')
                     time.sleep(8)
                     search.click()
-                    print("Poll Attended B")
+                    print("[swaksh]Poll Attended B")
                 except Exception as e:
                     search = driver.find_element_by_css_selector('button[aria-label="Yes"]')
                     time.sleep(5)
                     search.click()
-                    print("Poll Attended Yes")
+                    print("[swaksh]Poll Attended Yes")
             except Exception as e:
-                print("class in progress...")
+                print("[swaksh]class in progress...")
 
 onlineclassscript()
 if no_screen:
