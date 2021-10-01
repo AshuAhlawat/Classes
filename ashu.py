@@ -15,25 +15,42 @@ button = "green"
 poll = "B"
 
 mute = True
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import ChromeOptions
+
 
 
 #setting permissions to the browser
-opt = Options()
-opt.add_experimental_option("prefs", { \
-    "profile.default_content_setting_values.media_stream_mic":1,
-})
-if mute:
-    opt.add_argument("--mute-audio")
+opt = ChromeOptions()
+opt.add_experimental_option("prefs", {"profile.default_content_setting_values.media_stream_mic":1,})
 
 #locating the webdriver
 driver = webdriver.Chrome(options=opt,executable_path=r"./chromedriver")
 
+if mute:
+    driver.get("chrome://settings/content/sound")
+
+    def expand_shadow_element(element):
+        shadow_root = driver.execute_script('return arguments[0].shadowRoot', element)
+        return shadow_root
+    
+    shadow1 = expand_shadow_element(driver.find_element_by_tag_name("settings-ui"))
+    shadow2 = expand_shadow_element(shadow1.find_element_by_tag_name("settings-main"))
+    shadow3 = expand_shadow_element(shadow2.find_element_by_tag_name("settings-basic-page"))
+    shadow4 = expand_shadow_element(shadow3.find_element_by_tag_name("settings-privacy-page"))
+    shadow5 = expand_shadow_element(shadow4.find_element_by_tag_name("settings-category-default-radio-group"))
+    shadow6 = expand_shadow_element(shadow5.find_element_by_name("0"))
+    match = shadow6.find_element_by_class_name("disc-wrapper")
+
+    match.click()
+
+
+    
 #the class joining function
 def onlineclassscript():
     

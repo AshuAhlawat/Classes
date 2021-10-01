@@ -1,11 +1,11 @@
 #Download Python
-#Download Chrome WebDriver Version 92 and paste it in ProgramData in C Drive
+#Download Chrome WebDriver Version 88 and paste it in ProgramData in C Drive
 #pip install selenium
 
 # Your id below
-id_ = "12018433"
+id_ = "12016074"
 # your password below
-pass_ = "wq5uzG@#"
+pass_ = "#XMh@hWZ7$9s5r8"
 
 methods = ["Microphone","Listen only"]
 method = methods[0]
@@ -15,7 +15,6 @@ button = "green"
 poll = "B"
 
 mute = True
-
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -49,8 +48,7 @@ if mute:
     match = shadow6.find_element_by_class_name("disc-wrapper")
 
     match.click()
-#locating the webdriver
-
+   
 
 #the class joining function
 def onlineclassscript():
@@ -86,7 +84,7 @@ def onlineclassscript():
     while True:
         try:
             time.sleep(1)
-            search = driver.find_element_by_css_selector('a[style*="background: ' + button +';"]')
+            search = driver.find_element_by_css_selector('a[style*="background: '+ button +';"]')
             search.click()
             print("Entered Class")
             break

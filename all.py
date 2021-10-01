@@ -1,4 +1,4 @@
-people = ['ashu','ankit','swaksh']
+people = ['ashu','ankit','swaksh','sarthak','shrayansh','gaurav']
 
 
 import threading
@@ -13,6 +13,8 @@ def gaurav():
     import gaurav
 def sarthak():
     import sarthak
+def shrayansh():
+	import shrayansh
 
 
 ashu_class = threading.Thread(target=ashu)
@@ -20,6 +22,7 @@ swaksh_class = threading.Thread(target=swaksh)
 ankit_class = threading.Thread(target=ankit)
 gaurav_class = threading.Thread(target=gaurav)
 sarthak_class = threading.Thread(target=sarthak)
+shrayansh_class = threading.Thread(target=shrayansh)
 
 
 if "ashu" in people:
@@ -36,3 +39,6 @@ if "gaurav" in people:
 
 if "sarthak" in people:
     sarthak_class.start()
+    
+if "shrayansh" in people:
+    shrayansh_class.start()
