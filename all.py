@@ -1,4 +1,4 @@
-people = ['ashu','ankit','swaksh','sarthak','shrayansh','gaurav']
+people = ['ashu','ankit','swaksh']
 
 
 import threading
