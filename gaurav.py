@@ -58,14 +58,14 @@ def onlineclassscript():
     
     #connecting to login page
     driver.get("https://myclass.lpu.in")
-    print("[Gaurav]Connecting..")
+    print("[Gaurav] Connecting...")
     #logging in
     username = driver.find_element_by_name("i")
     username.send_keys(id_)
     password = driver.find_element_by_name("p")
     password.send_keys(pass_)
     password.send_keys(Keys.ENTER)
-    print("[Gaurav]Logging in..]")
+    print("[Gaurav] Logging in...")
 
     #finding and clicking on Classes/Meetings
     match_search = WebDriverWait(driver,20).until(
@@ -73,7 +73,7 @@ def onlineclassscript():
             (By.LINK_TEXT, "View Classes/Meetings")
         )
     )
-    print("[Gaurav]Joining class..")
+    print("[Gaurav] Joining class...")
     search = driver.find_element_by_link_text("View Classes/Meetings")
     search.click()
     
@@ -90,10 +90,10 @@ def onlineclassscript():
             time.sleep(1)
             search = driver.find_element_by_css_selector('a[style*="background: '+ button +';"]')
             search.click()
-            print("[Gaurav]Entered Class")
+            print("[Gaurav] Entered Class")
             break
         except Exception as e:
-            print("[Gaurav]]No Class in progress. ")
+            print("[Gaurav]] No Class in progress. ")
             time.sleep(180)
             onlineclassscript()
     
@@ -154,14 +154,14 @@ def onlineclassscript():
                     search = driver.find_element_by_css_selector('button[aria-label="'+poll+'"]')
                     time.sleep(8)
                     search.click()
-                    print("[gaurav]Poll Attended B")
+                    print("[Gaurav] Poll Attended B")
                 except Exception as e:
                     search = driver.find_element_by_css_selector('button[aria-label="Yes"]')
                     time.sleep(5)
                     search.click()
-                    print("[Gaurav]Poll Attended Yes")
+                    print("[Gaurav] Poll Attended Yes")
             except Exception as e:
-                print("[Gaurav]class in progress...")
+                print("[Gaurav] class in progress...")
             
 
 onlineclassscript()
