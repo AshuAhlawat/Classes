@@ -13,3 +13,5 @@
 ***Note: this will not work on windows***
 
 ![alt text](https://c.tenor.com/TykQcM6kNjEAAAAM/cat-grin.gif)
+
+Keep updating chromdriver, python, selenium etc.
