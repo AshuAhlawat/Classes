@@ -1,6 +1,9 @@
 #Download Python
-#Download Chrome WebDriver and paste it in ProgramData in C Drive
+#Download chromedriver and add path here
 #pip install selenium
+#pip install pyvirtualdisplay
+#Keep everything up to date, new updates are release time to time, make sure to install them, otherwise this
+#automated program won't work
 
 # Your id below
 id_ = "12015939"
@@ -9,7 +12,7 @@ pass_ = "Sandyruby@12"
 
 methods = ["Microphone","Listen only"]
 method = methods[0]
-no_screen = True
+no_screen = False
 button = "green"
 
 poll = "B"
@@ -31,7 +34,8 @@ opt.add_experimental_option("prefs", { \
 if no_screen:
     display = Display(visible=0, size=[800, 600])
     display.start()
-driver = webdriver.Chrome(options=opt,executable_path=r"./chromedriver")
+driver = webdriver.Chrome(options=opt,executable_path=
+r"D:\Programs\Chrome Driver Automation Tool\chromedriver.exe")
 
 if mute:
     driver.get("chrome://settings/content/sound")
@@ -57,14 +61,14 @@ def onlineclassscript():
     
     #connecting to login page
     driver.get("https://myclass.lpu.in")
-    print("[swaksh]Connecting..")
+    print("[Swaksh] Connecting...")
     #logging in
     username = driver.find_element_by_name("i")
     username.send_keys(id_)
     password = driver.find_element_by_name("p")
     password.send_keys(pass_)
     password.send_keys(Keys.ENTER)
-    print("[swaksh]connecting..")
+    print("[Swaksh] connecting...")
     #finding and clicking on Classes/Meetings
     match_search = WebDriverWait(driver,20).until(
         expected_conditions.presence_of_element_located(
@@ -88,10 +92,10 @@ def onlineclassscript():
             time.sleep(1)
             search = driver.find_element_by_css_selector('a[style*="background: '+button+';"]')
             search.click()
-            print("[swaksh]Entered Class")
+            print("[Swaksh] Entered Class")
             break
         except Exception as e:
-            print("[swaksh]No Class in progress. ")
+            print("[Swaksh] No Class in progress. ")
             time.sleep(180)
             onlineclassscript()
     
@@ -153,14 +157,14 @@ def onlineclassscript():
                     search = driver.find_element_by_css_selector('button[aria-label="'+poll+'"]')
                     time.sleep(8)
                     search.click()
-                    print("[swaksh]Poll Attended B")
+                    print("[Swaksh] Poll Attended B")
                 except Exception as e:
                     search = driver.find_element_by_css_selector('button[aria-label="Yes"]')
                     time.sleep(5)
                     search.click()
-                    print("[swaksh]Poll Attended Yes")
+                    print("[Swaksh] Poll Attended Yes")
             except Exception as e:
-                print("[swaksh]class in progress...")
+                print("[Swaksh] class in progress...")
 
 onlineclassscript()
 if no_screen:
