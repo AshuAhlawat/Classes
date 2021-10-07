@@ -1,6 +1,9 @@
 #Download Python
-#Download Chrome WebDriver Version 92 and paste it in ProgramData in C Drive
+#Download chromedriver and add path here
 #pip install selenium
+#pip install pyvirtualdisplay
+#Keep everything up to date, new updates are release time to time, make sure to install them, otherwise this
+#automated program won't work
 
 # Your id below
 id_ = "12016043"
@@ -33,7 +36,8 @@ if no_screen:
     display = Display(visible=0, size=[800, 600])
     display.start()
 #locating the webdriver
-driver = webdriver.Chrome(options=opt,executable_path=r"./chromedriver")
+driver = webdriver.Chrome(options=opt,
+executable_path=r"D:\Programs\Chrome Driver Automation Tool\chromedriver.exer")
 
 if mute:
     driver.get("chrome://settings/content/sound")
