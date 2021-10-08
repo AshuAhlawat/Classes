@@ -1,16 +1,21 @@
-# Classes
+# Classes one time set-up
 
-**Installing XVFB for linux**
+* ## Write in Terminal
+```
+pip install selenium
+```
 
-*sudo apt-get install xvfb*
+* ## If on Linux
 
-*Xvfb :99 -ac & export DISPLAY=:99*
-
-**Installing pyvirtualdisplay**
-
-*pip install pyvirtualdisplay*
-
-***Note: this will not work on windows***
+```
+sudo apt-get install xvfb
+```
+```
+Xvfb :99 -ac & export DISPLAY=:99
+```
+```
+pip install pyvirtualdisplay
+```
 
 ![alt text](https://c.tenor.com/TykQcM6kNjEAAAAM/cat-grin.gif)
 

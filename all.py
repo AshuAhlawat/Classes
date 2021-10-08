@@ -1,48 +1,65 @@
-people = ['ankit', 'ashu', 'gaurav', 'rishika', 'sarthak', 'shrayansh', 'swaksh']
+PEOPLE = ['ankit','ashu','swaksh']
+NO_SCREEN = True
+MUTE = True
+methods = ["Microphone","Listen only"]
+METHOD = methods[0]
 
 
+from script import onlineclassscript
+
+import os
 import threading
 
-def ankit():
-    import ankit
-def ashu():
-    import ashu
-def gaurav():
-    import gaurav
-def rishika():
-    import rishika
-def sarthak():
-    import sarthak
-def shrayansh():
-	import shrayansh
-def swaksh():
-    import swaksh
+system = os.uname()[0]
+if system == "Linux":
+    ROOT = "./chromedriver"
+else:
+    ROOT = "./chromedriver.exe"
+    NO_SCREEN=False
 
-ankit_class = threading.Thread(target=ankit)
+
+def ashu():
+    onlineclassscript("Ashu", "12016043", "SandyRuby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def swaksh():
+    onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def ankit():
+    onlineclassscript("Ankit", "12018329", "Gaara#69",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def gaurav():
+    onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def sarthak():
+    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def shrayansh():
+	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def rishika():
+    onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+
+
 ashu_class = threading.Thread(target=ashu)
+swaksh_class = threading.Thread(target=swaksh)
+ankit_class = threading.Thread(target=ankit)
 gaurav_class = threading.Thread(target=gaurav)
-rishika_class = threading.Thread(target=rishika)
 sarthak_class = threading.Thread(target=sarthak)
 shrayansh_class = threading.Thread(target=shrayansh)
-swaksh_class = threading.Thread(target=swaksh)
+rishika_class = threading.Thread(target=rishika)
 
-if "ankit" in people:
-    ankit_class.start()
 
-if "ashu" in people:
+if "ashu" in PEOPLE:
     ashu_class.start()
 
-if "gaurav" in people:
+if "swaksh" in PEOPLE:
+    swaksh_class.start()
+
+if "ankit" in PEOPLE:
+    ankit_class.start()
+
+if "gaurav" in PEOPLE:
     gaurav_class.start()
 
-if "rishika" in people:
-    rishika_class.start()
-
-if "sarthak" in people:
+if "sarthak" in PEOPLE:
     sarthak_class.start()
     
-if "shrayansh" in people:
+if "shrayansh" in PEOPLE:
     shrayansh_class.start()
 
-if "swaksh" in people:
-    swaksh_class.start()
+if "rishika" in PEOPLE:
+    rishika_class.start()
