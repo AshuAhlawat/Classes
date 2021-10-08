@@ -1,20 +1,37 @@
-people = ['ankit','ashu','swaksh']
+PEOPLE = ['ankit','ashu','swaksh']
+NO_SCREEN = True
+MUTE = True
+methods = ["Microphone","Listen only"]
+METHOD = methods[0]
 
 
+from script import onlineclassscript
+
+import os
 import threading
 
+system = os.uname()[0]
+if system == "Linux":
+    ROOT = "./chromedriver"
+else:
+    ROOT = "./chromedriver.exe"
+    NO_SCREEN=False
+
+
 def ashu():
-    import ashu
+    onlineclassscript("Ashu", "12016043", "SandyRuby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def swaksh():
-    import swaksh
+    onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def ankit():
-    import ankit
+    onlineclassscript("Ankit", "12018329", "Gaara#69",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def gaurav():
-    import gaurav
+    onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def sarthak():
-    import sarthak
+    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def shrayansh():
-	import shrayansh
+	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+def rishika():
+    onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 
 
 ashu_class = threading.Thread(target=ashu)
@@ -23,22 +40,26 @@ ankit_class = threading.Thread(target=ankit)
 gaurav_class = threading.Thread(target=gaurav)
 sarthak_class = threading.Thread(target=sarthak)
 shrayansh_class = threading.Thread(target=shrayansh)
+rishika_class = threading.Thread(target=rishika)
 
 
-if "ashu" in people:
+if "ashu" in PEOPLE:
     ashu_class.start()
 
-if "swaksh" in people:
+if "swaksh" in PEOPLE:
     swaksh_class.start()
 
-if "ankit" in people:
+if "ankit" in PEOPLE:
     ankit_class.start()
 
-if "gaurav" in people:
+if "gaurav" in PEOPLE:
     gaurav_class.start()
 
-if "sarthak" in people:
+if "sarthak" in PEOPLE:
     sarthak_class.start()
     
-if "shrayansh" in people:
+if "shrayansh" in PEOPLE:
     shrayansh_class.start()
+
+if "rishika" in PEOPLE:
+    rishika_class.start()
