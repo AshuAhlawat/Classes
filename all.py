@@ -1,4 +1,4 @@
-PEOPLE = ['ankit','ashu','swaksh']
+PEOPLE = ['ashu']
 NO_SCREEN = True
 MUTE = True
 methods = ["Microphone","Listen only"]
@@ -12,9 +12,9 @@ import threading
 
 system = os.uname()[0]
 if system == "Linux":
-    ROOT = "./chromedriver"
+    ROOT = "./chromedriver94"
 else:
-    ROOT = "./chromedriver.exe"
+    ROOT = "./chromedriver94.exe"
     NO_SCREEN=False
 
 
