@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-PEOPLE = []
-=======
 PEOPLE = ['ankit','ashu']
->>>>>>> Stashed changes
 NO_SCREEN = True
 MUTE = True
 methods = ["Microphone","Listen only"]
