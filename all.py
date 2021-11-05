@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 PEOPLE = []
+=======
+PEOPLE = ['ankit','ashu']
+>>>>>>> Stashed changes
 NO_SCREEN = True
 MUTE = True
 methods = ["Microphone","Listen only"]
@@ -23,7 +27,7 @@ def ashu():
 def swaksh():
     onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def ankit():
-    onlineclassscript("Ankit", "12018329", "Gaara#69",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Ankit", "12018329", "Gaara#29",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def gaurav():
     onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def sarthak():
