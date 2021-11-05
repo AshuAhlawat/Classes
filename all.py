@@ -1,4 +1,4 @@
-PEOPLE = ['ashu']
+PEOPLE = []
 NO_SCREEN = True
 MUTE = True
 methods = ["Microphone","Listen only"]
@@ -19,7 +19,7 @@ else:
 
 
 def ashu():
-    onlineclassscript("Ashu", "12016043", "SandyRuby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def swaksh():
     onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def ankit():
