@@ -12,7 +12,7 @@ import threading
 
 system = os.uname()[0]
 if system == "Linux":
-    ROOT = "/home/anky/Documents/Classes/chromedriver94"
+    ROOT = "./chromedriver94"
 else:
     ROOT = "./chromedriver94.exe"
     NO_SCREEN=False
