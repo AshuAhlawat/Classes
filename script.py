@@ -5,10 +5,23 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
+import os
+import time
+import playsound
+import speech_recognition as sr
+from gtts import gTTS
+
+def speak(text):
+    tts = gTTS(text=text,lang="en")
+    filename = "voice.mp3"
+    tts.save(filename)
+    playsound.playsound(filename)
 
 from pyvirtualdisplay import Display
 
-def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen=True):
+def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen=True,sound=True):
+    
+        
 
     opt = Options()
     opt.add_experimental_option("prefs", {
@@ -43,7 +56,10 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
     
     #connecting to login page
     driver.get("https://myclass.lpu.in")
+
     print(name+": Connecting..")
+    if sound:
+        speak(name+"connecting")
 
     #logging in
     username = driver.find_element(By.NAME,"i")
@@ -51,6 +67,8 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
     password = driver.find_element(By.NAME,"p")
     password.send_keys(pass_)
     password.send_keys(Keys.ENTER)
+    if sound:
+        speak(name+"Logging in")
     print(name+": Logging in..")
 
     #finding and clicking on Classes/Meetings
@@ -75,9 +93,13 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             time.sleep(1)
             search = driver.find_element(By.CSS_SELECTOR,'a[style*="background: ' + button +';"]')
             search.click()
+            if sound:
+                speak(name+"Entered class")
             print(name+": Entered Class")
             break
         except Exception as e:
+            if sound:
+                speak(name+" No Class in progress. ")
             print(name+": No Class in progress. ")
             time.sleep(180)
             onlineclassscript(name,id_,pass_,root,method,mute,noscreen)
@@ -107,6 +129,8 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
     )
     search = driver.find_element(By.CSS_SELECTOR,'button[aria-label="' + method +'"]')
     search.click()
+    if sound:
+        speak(name+"Joined via "+method)
     print(name+": Joined via "+method)
     
     #doing echo test
@@ -141,11 +165,15 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
                     search = driver.find_element(By.CSS_SELECTOR,'button[aria-label="'+poll+'"]')
                     time.sleep(5)
                     search.click()
+                    if sound:
+                        speak(name+" Poll Attended B")
                     print(name+": Poll Attended B")
                 except Exception as e:#and click Yes if poll doesnt have B
                     search = driver.find_element(By.CSS_SELECTOR,'button[aria-label="Yes"]')
                     time.sleep(5)
                     search.click()
+                    if sound:
+                        speak(name+" Poll Attended Yes")
                     print(name+": Poll Attended Yes")
             except Exception as e:#if no poll during last 2 mins
                 print(name+": class in progress...")

@@ -12,26 +12,26 @@ import threading
 
 system = os.uname()[0]
 if system == "Linux":
-    ROOT = "./chromedriver94"
+    ROOT = "/home/anky/Documents/Classes/chromedriver94"
 else:
     ROOT = "./chromedriver94.exe"
     NO_SCREEN=False
 
 
 def ashu():
-    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def swaksh():
-    onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def ankit():
     onlineclassscript("Ankit", "12018329", "Gaara#29",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 def gaurav():
-    onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def sarthak():
-    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def shrayansh():
-	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def rishika():
-    onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
+    onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 
 
 ashu_class = threading.Thread(target=ashu)
