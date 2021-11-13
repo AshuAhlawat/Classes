@@ -1,3 +1,4 @@
+[![N|Solid](https://www.freepnglogos.com/uploads/discord-logo-png/playerunknown-battlegrounds-bgparty-15.png)](https://discord.gg/9uumcceRaQ)
 # Classes one time set-up
 
 ## Requirements
