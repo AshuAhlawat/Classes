@@ -4,9 +4,12 @@
 ```
 pip install selenium
 ```
-*#Added a new feature for command line arguments
- Now you dont need to edit file for diffrent classes
- ```python3 all.py [name of people you want to attend class]
+*##Added a new feature for command line arguments
+*##Now you dont need to edit file for diffrent classes
+ 
+ ```
+ python3 all.py [name of people you want to attend class]
+ 
  ```
 *#names are 'ashu','ankit','gaurav','swaksh','shreyansh','sarthak'    
 ```
