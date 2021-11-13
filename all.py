@@ -1,4 +1,8 @@
-PEOPLE = ['ankit','ashu']
+import sys
+args_arr = sys.argv
+PEOPLE = []
+for i in args_arr:
+    PEOPLE.append(i)
 NO_SCREEN = True
 MUTE = True
 methods = ["Microphone","Listen only"]
@@ -42,24 +46,35 @@ sarthak_class = threading.Thread(target=sarthak)
 shrayansh_class = threading.Thread(target=shrayansh)
 rishika_class = threading.Thread(target=rishika)
 
+print("Selected options are:")
+for i in range(1,len(PEOPLE)):
+    print("(*)"+PEOPLE[i])
 
-if "ashu" in PEOPLE:
+if "ashu" in PEOPLE :
     ashu_class.start()
 
-if "swaksh" in PEOPLE:
+if "swaksh" in PEOPLE :
     swaksh_class.start()
 
-if "ankit" in PEOPLE:
+if "ankit" in PEOPLE :
     ankit_class.start()
 
-if "gaurav" in PEOPLE:
+if "gaurav" in PEOPLE :
     gaurav_class.start()
 
-if "sarthak" in PEOPLE:
+if "sarthak" in PEOPLE :
     sarthak_class.start()
     
-if "shrayansh" in PEOPLE:
+if "shrayansh" in PEOPLE :
     shrayansh_class.start()
 
-if "rishika" in PEOPLE:
+if "rishika" in PEOPLE :
     rishika_class.start()
+if "help" in PEOPLE:
+    print("---------Welcome to ClassScript---------")
+    print("Follow the steps to attend class:")
+    help_man = '''(1)Open you class script folder in terminal.
+                  (2)now run python3 or python all.py args
+                  (3) arguments are :
+                   -ankit,ashu,sarthak,swaksh,gaurav,shrayansh,rishika and  help for This page'''
+    print(help_man)
