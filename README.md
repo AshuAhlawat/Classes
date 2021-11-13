@@ -1,11 +1,11 @@
 # Classes one time set-up
 
-* ## Write in Terminal
+## Write in Terminal
 ```
 pip install selenium
 ```
-*##Added a new feature for command line arguments
-*##Now you dont need to edit file for diffrent classes
+##Added a new feature for command line arguments
+##Now you dont need to edit file for diffrent classes
  
  ```
  python3 all.py [name of people you want to attend class]
