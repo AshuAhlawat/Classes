@@ -1,10 +1,10 @@
 import sys
 args_arr = sys.argv
-PEOPLE = []
+PEOPLE = ["ankit"]
 for i in args_arr:
     PEOPLE.append(i)
-NO_SCREEN = True
-MUTE = True
+NO_SCREEN = False
+MUTE = False
 methods = ["Microphone","Listen only"]
 METHOD = methods[0]
 
@@ -16,9 +16,9 @@ import threading
 
 system = os.uname()[0]
 if system == "Linux":
-    ROOT = "./chromedriver94"
+    ROOT = "./chromedriver97"
 else:
-    ROOT = "./chromedriver94.exe"
+    ROOT = "./chromedriver97.exe"
     NO_SCREEN=False
 
 
