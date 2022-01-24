@@ -21,8 +21,6 @@ def speak(text):
 from pyvirtualdisplay import Display
 
 def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen=True,sound=True):
-    
-        
 
     opt = Options()
     opt.add_experimental_option("prefs", {
@@ -94,14 +92,15 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             time.sleep(1)
             search = driver.find_element(By.CSS_SELECTOR,'a[style*="background: ' + button +';"]')
             search.click()
-            
+
             match_search = WebDriverWait(driver,30).until(
-				expected_conditions.presence_of_element_located(
-				    (By.CSS_SELECTOR, 'a[role="button"]')
-				)
-			)
-			search = driver.find_element(By.CSS_SELECTOR,'a[role="button"]')
-			search.click()
+                expected_conditions.presence_of_element_located(
+                    (By.CSS_SELECTOR, 'a[role="button"]')
+                )
+            )
+
+            search = driver.find_element(By.CSS_SELECTOR,'a[role="button"]')
+            search.click()
     
             if sound:
                 speak(name+"Entered class")
@@ -114,8 +113,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             print(name+": No Class in progress. ")
             time.sleep(180)
             onlineclassscript(name,id_,pass_,root,method,mute,noscreen)
-    
-    
+        
     #switching to the audio choice frame
     match_search = WebDriverWait(driver,500).until(
         expected_conditions.presence_of_element_located(

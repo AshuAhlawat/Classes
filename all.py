@@ -1,6 +1,7 @@
 import sys
 args_arr = sys.argv
-PEOPLE = ["ankit"]
+
+PEOPLE = ["ashu"]
 for i in args_arr:
     PEOPLE.append(i)
 NO_SCREEN = False
