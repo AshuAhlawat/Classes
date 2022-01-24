@@ -94,6 +94,15 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             time.sleep(1)
             search = driver.find_element(By.CSS_SELECTOR,'a[style*="background: ' + button +';"]')
             search.click()
+            
+            match_search = WebDriverWait(driver,30).until(
+				expected_conditions.presence_of_element_located(
+				    (By.CSS_SELECTOR, 'a[role="button"]')
+				)
+			)
+			search = driver.find_element(By.CSS_SELECTOR,'a[role="button"]')
+			search.click()
+    
             if sound:
                 speak(name+"Entered class")
             print(name+": Entered Class")
@@ -101,17 +110,11 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
         except Exception as e:
             if sound:
                 speak(name+" No Class in progress. ")
+            driver.close()
             print(name+": No Class in progress. ")
             time.sleep(180)
             onlineclassscript(name,id_,pass_,root,method,mute,noscreen)
     
-    match_search = WebDriverWait(driver,30).until(
-        expected_conditions.presence_of_element_located(
-            (By.CSS_SELECTOR, 'a[role="button"]')
-        )
-    )
-    search = driver.find_element(By.CSS_SELECTOR,'a[role="button"]')
-    search.click()
     
     #switching to the audio choice frame
     match_search = WebDriverWait(driver,500).until(
@@ -153,6 +156,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
                 )
             )
             #reruning func if class ended to look for new ones 
+            driver.close()
             onlineclassscript(name,id_,pass_,root,method,mute,noscreen)
         except:
             try:#to search for polls
