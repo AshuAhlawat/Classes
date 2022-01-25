@@ -34,7 +34,7 @@ def gaurav():
 def sarthak():
     onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def shrayansh():
-	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
+	onlineclassscript("Shrayansh", "12016074", "1234@Shrayansh",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 def rishika():
     onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
 
