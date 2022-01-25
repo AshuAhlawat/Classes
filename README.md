@@ -23,7 +23,7 @@ pip install playaudio
  ```
  python3 all.py [name of people you want to attend class]
  ```
->>Names are 'ashu','ankit','gaurav','swaksh','shreyansh','sarthak'    
+>>Names are 'ashu','ankit','gaurav','swaksh','shrayansh','sarthak'    
 ```
 python3 all.py help
 ```
