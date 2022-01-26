@@ -4,51 +4,38 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+
 import time
 import os
-import time
 
 
-def speak(text):
-    import playsound
-    import speech_recognition as sr
-    from gtts import gTTS
-    tts = gTTS(text=text,lang="en")
-    filename = "voice.mp3"
-    tts.save(filename)
-    playsound.playsound(filename)
+def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscreen=False,sound=False):
 
-from pyvirtualdisplay import Display
+    if sound:
+        import playsound
+        import speech_recognition as sr
+        from gtts import gTTS
 
-def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen=True,sound=True):
+        def speak(text):
+            tts = gTTS(text=text,lang="en")
+            filename = "voice.mp3"
+            tts.save(filename)
+            playsound.playsound(filename)
+
 
     opt = Options()
+
+    if mute:
+        opt.add_argument("--mute-audio")
+
+    if noscreen:
+        opt.add_argument('--headless')
+
     opt.add_experimental_option("prefs", {
         "profile.default_content_setting_values.media_stream_mic":1,
     })
 
-    if noscreen:
-        display = Display(visible=0, size=[800, 600])
-        display.start()
-
     driver = webdriver.Chrome(options=opt,executable_path=root)
-
-    if mute:
-        driver.get("chrome://settings/content/sound")
-
-        def expand_shadow_element(element):
-            shadow_root = driver.execute_script('return arguments[0].shadowRoot', element)
-            return shadow_root
-        
-        shadow1 = expand_shadow_element(driver.find_element(By.TAG_NAME,"settings-ui"))
-        shadow2 = expand_shadow_element(shadow1.find_element(By.TAG_NAME,"settings-main"))
-        shadow3 = expand_shadow_element(shadow2.find_element(By.TAG_NAME,"settings-basic-page"))
-        shadow4 = expand_shadow_element(shadow3.find_element(By.TAG_NAME,"settings-privacy-page"))
-        shadow5 = expand_shadow_element(shadow4.find_element(By.TAG_NAME,"settings-category-default-radio-group"))
-        shadow6 = expand_shadow_element(shadow5.find_element(By.NAME,"0"))
-        match = shadow6.find_element(By.CLASS_NAME,"disc-wrapper")
-        time.sleep(1)
-        match.click()
 
     button = "green"
     poll = "B"
@@ -58,7 +45,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
 
     print(name+": Connecting..")
     if sound:
-        speak(name+"connecting")
+        speak(name+" connecting")
 
     #logging in
     username = driver.find_element(By.NAME,"i")
@@ -66,8 +53,10 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
     password = driver.find_element(By.NAME,"p")
     password.send_keys(pass_)
     password.send_keys(Keys.ENTER)
+
     if sound:
         speak(name+"Logging in")
+
     print(name+": Logging in..")
 
     #finding and clicking on Classes/Meetings
@@ -76,7 +65,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             (By.LINK_TEXT, "View Classes/Meetings")
         )
     )
-    print(name+": Joining class..")
+    
     search = driver.find_element(By.LINK_TEXT,"View Classes/Meetings")
     search.click()
     
@@ -86,13 +75,17 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
             (By.CLASS_NAME, "fc-content")
         )
     )
+
+    print(name+": Seeking Class")
+    if sound:
+        speak(name + ": Seeking Class")
     #joining the running classes
     while True:
         try:
             time.sleep(1)
             search = driver.find_element(By.CSS_SELECTOR,'a[style*="background: ' + button +';"]')
             search.click()
-
+            
             match_search = WebDriverWait(driver,30).until(
                 expected_conditions.presence_of_element_located(
                     (By.CSS_SELECTOR, 'a[role="button"]')
@@ -101,9 +94,11 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=True,noscreen
 
             search = driver.find_element(By.CSS_SELECTOR,'a[role="button"]')
             search.click()
-    
+            
+
             if sound:
                 speak(name+"Entered class")
+
             print(name+": Entered Class")
             break
         except Exception as e:

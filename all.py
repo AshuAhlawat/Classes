@@ -1,76 +1,42 @@
 import sys
-args_arr = sys.argv
-
-PEOPLE = ["ashu"]
-for i in args_arr:
-    PEOPLE.append(i)
-NO_SCREEN = False
-MUTE = False
-methods = ["Microphone","Listen only"]
-METHOD = methods[0]
-
-
 from script import onlineclassscript
 
 import os
 import threading
 
+
+args_arr = sys.argv
+
+PEOPLE = ["ashu"]
+
+for i in args_arr:
+    PEOPLE.append(i)
+    
+methods = ["Microphone","Listen only"]
+METHOD = methods[0]
+NO_SCREEN = False
+MUTE = True
+SOUND = False
+
 system = os.uname()[0]
+
 if system == "Linux":
     ROOT = "./chromedriver97"
 else:
     ROOT = "./chromedriver97.exe"
-    NO_SCREEN=False
-
 
 def ashu():
-    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
-def swaksh():
-    onlineclassscript("Swaksh", "12015939", "Sandyruby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
+    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 def ankit():
     onlineclassscript("Ankit", "12018329", "Gaara#29",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
-def gaurav():
-    onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
+# def gaurav():
+#     onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 def sarthak():
-    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
+    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 def shrayansh():
-	onlineclassscript("Shrayansh", "12016074", "1234@Shrayansh",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
-def rishika():
-    onlineclassscript("Rishika", "12018291", "Rishi@270",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=True)
+	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 
 
-ashu_class = threading.Thread(target=ashu)
-swaksh_class = threading.Thread(target=swaksh)
-ankit_class = threading.Thread(target=ankit)
-gaurav_class = threading.Thread(target=gaurav)
-sarthak_class = threading.Thread(target=sarthak)
-shrayansh_class = threading.Thread(target=shrayansh)
-rishika_class = threading.Thread(target=rishika)
-
-print("Selected options are:")
-for i in range(1,len(PEOPLE)):
-    print("(*)"+PEOPLE[i])
-
-if "ashu" in PEOPLE :
-    ashu_class.start()
-
-if "swaksh" in PEOPLE :
-    swaksh_class.start()
-
-if "ankit" in PEOPLE :
-    ankit_class.start()
-
-if "gaurav" in PEOPLE :
-    gaurav_class.start()
-
-if "sarthak" in PEOPLE :
-    sarthak_class.start()
-    
-if "shrayansh" in PEOPLE :
-    shrayansh_class.start()
-
-if "rishika" in PEOPLE :
-    rishika_class.start()
 if "help" in PEOPLE:
     print("---------Welcome to ClassScript---------")
     print("Follow the steps to attend class:")
@@ -79,3 +45,33 @@ if "help" in PEOPLE:
                   (3) arguments are :
                    -ankit,ashu,sarthak,swaksh,gaurav,shrayansh,rishika and  help for This page'''
     print(help_man)
+    quit()
+
+print("Selected people are:")
+
+if "ashu" in PEOPLE :
+    ashu_class = threading.Thread(target=ashu)
+    ashu_class.start()
+    print("Ashu")
+
+if "ankit" in PEOPLE :
+    ankit_class = threading.Thread(target=ankit)
+    ankit_class.start()
+    print("Ankit")
+
+# if "gaurav" in PEOPLE :
+#     gaurav_class = threading.Thread(target=gaurav)
+#     gaurav_class.start()
+#     print("Gaurav")
+
+if "sarthak" in PEOPLE :
+    sarthak_class = threading.Thread(target=sarthak)
+    sarthak_class.start()
+    print("Sarthak")
+    
+if "shrayansh" in PEOPLE :
+    shrayansh_class = threading.Thread(target=shrayansh)
+    shrayansh_class.start()
+    print("Shrayansh")
+
+
