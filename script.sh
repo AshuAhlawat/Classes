@@ -1,2 +1,5 @@
 cd /home/capti/Coding/Classes
-python3 all.py
+
+truncate 0 -s class.log
+
+python3 all.py > class.log

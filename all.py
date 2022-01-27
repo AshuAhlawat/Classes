@@ -7,7 +7,7 @@ import threading
 
 args_arr = sys.argv
 
-PEOPLE = ["ashu"]
+PEOPLE = ["ashu", "ankit"]
 
 for i in args_arr:
     PEOPLE.append(i)

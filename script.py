@@ -139,6 +139,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscree
         )
         search = driver.find_element(By.CSS_SELECTOR,'button[aria-label="Echo is audible"]')
         search.click()
+        print(name + " Echo test cleared")
     
     
     while True:
