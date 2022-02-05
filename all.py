@@ -7,7 +7,7 @@ import threading
 
 args_arr = sys.argv
 
-PEOPLE = ["ashu", "ankit"]
+PEOPLE = []
 
 for i in args_arr:
     PEOPLE.append(i)
@@ -26,7 +26,7 @@ else:
     ROOT = "./chromedriver97.exe"
 
 def ashu():
-    onlineclassscript("Ashu", "12016043", "ASHUahlawat@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
+    onlineclassscript("Ashu", "12016043", "SandyRuby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 def ankit():
     onlineclassscript("Ankit", "12018329", "Gaara#29",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
 # def gaurav():
