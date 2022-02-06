@@ -34,7 +34,7 @@ def ankit():
 def sarthak():
     onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 def shrayansh():
-	onlineclassscript("Shrayanh", "12016074", "#XMh@hWZ7$9s5r8",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
+	onlineclassscript("Shrayanh", "12016074", "1234@Shrayansh",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
 
 
 if "help" in PEOPLE:
