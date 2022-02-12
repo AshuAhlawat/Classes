@@ -24,11 +24,17 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscree
 
 
     opt = Options()
+    
+    opt.add_argument("--disable-gpu")
+    opt.add_argument("--disable-extensions")
 
     if mute:
         opt.add_argument("--mute-audio")
 
     if noscreen:
+        opt.add_argument("--window-size=1920,1080")
+        opt.add_argument("--start-maximized")
+        opt.add_argument("--no-sandbox")
         opt.add_argument('--headless')
 
     opt.add_experimental_option("prefs", {
@@ -82,7 +88,6 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscree
     #joining the running classes
     while True:
         try:
-            time.sleep(1)
             search = driver.find_element(By.CSS_SELECTOR,'a[style*="background: ' + button +';"]')
             search.click()
             
@@ -129,9 +134,11 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscree
     if sound:
         speak(name+"Joined via "+method)
     print(name+": Joined via "+method)
+
     
     #doing echo test
     if method=="Microphone":
+        time.sleep(1)
         match_search = WebDriverWait(driver,80).until(
             expected_conditions.presence_of_element_located(
                 (By.CSS_SELECTOR, 'button[aria-label="Echo is audible"]')
@@ -139,7 +146,7 @@ def onlineclassscript(name,id_,pass_,root,method="Microphone",mute=False,noscree
         )
         search = driver.find_element(By.CSS_SELECTOR,'button[aria-label="Echo is audible"]')
         search.click()
-        print(name + " Echo test cleared")
+        print(name + ": Echo test cleared")
     
     
     while True:
