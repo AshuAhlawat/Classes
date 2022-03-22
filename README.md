@@ -1,8 +1,16 @@
 [![N|Solid](https://www.freepnglogos.com/uploads/discord-logo-png/playerunknown-battlegrounds-bgparty-15.png)](https://discord.gg/9uumcceRaQ)
 # Classes one time set-up
 
+
 ## Requirements
 
+# Chromedriver
+
+>Update Chrome to latest version
+
+>Download Chromedriver of the same version form https://chromedriver.chromium.org/downloads
+
+>Put it in the same folder as main.py and rename to chromedriver.exe for Windows and chromedriver for linux
 ```
 pip3 install --upgrade requests
 pip install selenium
@@ -18,10 +26,10 @@ pip install playsound
 ```
 
 # Added a new feature for command line arguments
- ```
+```
  python3 all.py [name of people you want to attend class]
- ```
->>Names are 'ashu','ankit','gaurav','swaksh','shreyansh','sarthak'    
+```
+
 ```
 python3 all.py help
 ```
