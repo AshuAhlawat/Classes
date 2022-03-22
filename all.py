@@ -1,3 +1,8 @@
+RECORD = {
+    #your_name : [registration number , password]
+}
+
+
 import sys
 from script import onlineclassscript
 
@@ -25,53 +30,29 @@ if system == "Linux":
 else:
     ROOT = "./chromedriver97.exe"
 
-def ashu():
-    onlineclassscript("Ashu", "12016043", "SandyRuby@12",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
-def ankit():
-    onlineclassscript("Ankit", "12018329", "Anky@9618",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN)
-# def gaurav():
-#     onlineclassscript("Gaurav", "12014917", "Patel652002#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
-def sarthak():
-    onlineclassscript("Sarthak", "12018433", "wq5uzG@#",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
-def shrayansh():
-	onlineclassscript("Shrayanh", "12016074", "1234@Shrayansh",ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
-
-
 if "help" in PEOPLE:
     print("---------Welcome to ClassScript---------")
     print("Follow the steps to attend class:")
     help_man = '''(1)Open you class script folder in terminal.
                   (2)now run python3 or python all.py args
                   (3) arguments are :
-                   -ankit,ashu,sarthak,swaksh,gaurav,shrayansh,rishika and  help for This page'''
+                   -ankit,ashu,sarthak,gaurav,shrayansh,rishika and  help for This page'''
     print(help_man)
     quit()
 
+
+def run(name, reg_no, password):
+    onlineclassscript(name, reg_no, password,ROOT,method=METHOD,mute=MUTE,noscreen=NO_SCREEN,sound=SOUND)
+
 print("Selected people are:")
 
-if "ashu" in PEOPLE :
-    ashu_class = threading.Thread(target=ashu)
-    ashu_class.start()
-    print("Ashu")
+try:
+    for i in range(1,len(PEOPLE)):
+        print(PEOPLE[i])
 
-if "ankit" in PEOPLE :
-    ankit_class = threading.Thread(target=ankit)
-    ankit_class.start()
-    print("Ankit")
+        thread = threading.Thread(target=run, args=[PEOPLE[i], RECORD[PEOPLE[i]][0], RECORD[PEOPLE[i]][1]])
 
-# if "gaurav" in PEOPLE :
-#     gaurav_class = threading.Thread(target=gaurav)
-#     gaurav_class.start()
-#     print("Gaurav")
-
-if "sarthak" in PEOPLE :
-    sarthak_class = threading.Thread(target=sarthak)
-    sarthak_class.start()
-    print("Sarthak")
-    
-if "shrayansh" in PEOPLE :
-    shrayansh_class = threading.Thread(target=shrayansh)
-    shrayansh_class.start()
-    print("Shrayansh")
-
-
+        thread.start()
+except:
+    print("Wrong Input Try Again")
+    sys.exit()
