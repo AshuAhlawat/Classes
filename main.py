@@ -1,5 +1,5 @@
 RECORD = {
-    #your_name : [registration number , password]
+    #str(your_name) : [int(registration number) , str(password)]
 }
 
 
@@ -23,12 +23,14 @@ NO_SCREEN = False
 MUTE = True
 SOUND = False
 
-system = os.uname()[0]
 
-if system == "Linux":
+ROOT = "./chromedriver.exe"
+
+try:
+    os.uname()
     ROOT = "./chromedriver"
-else:
-    ROOT = "./chromedriver.exe"
+except:
+    pass
 
 if "help" in PEOPLE:
     print("---------Welcome to ClassScript---------")

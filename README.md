@@ -11,10 +11,25 @@
 >Download Chromedriver of the same version form https://chromedriver.chromium.org/downloads
 
 >Put it in the same folder as main.py and rename to chromedriver.exe for Windows and chromedriver for linux
+
+# Modules
 ```
-pip3 install --upgrade requests
+pip install --upgrade requests
 pip install selenium
 ```
+
+# Adding People
+```
+ Go in side main.py and edit the first "RECORD" dictionary
+ in the form
+ {name: str} : [{registration no : int}, {password : str}]
+```
+
+# To run script
+```
+ python main.py {name of people(exact) you added in RECORD in main.py seperated by a space}
+```
+
 # For using new sound function you need to install these packages.
 
 ```
@@ -25,13 +40,9 @@ pip install SpeechRecognition
 pip install playsound
 ```
 
-# Added a new feature for command line arguments
+# for Help
 ```
- python3 all.py [name of people you want to attend class]
-```
-
-```
-python3 all.py help
+python main.py help
 ```
 
 
