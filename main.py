@@ -1,8 +1,23 @@
 RECORD = {
-    #str(your_name) : [int(registration number) , str(password)]
+
+    #  Note: You passwords and Reg no are completely safe if you have any doubts just dont fking use it then.
+
+    # str("you name alias here") : [int(reg. no here) , str("password here")]
 }
 
+art = """
+--------------------------------------------------------------------
+                            Welcome!                          
+--------------------------------------------------------------------
+Report Issues or Contribute: https://github.com/AshuAhlawat/Classes
 
+Developers: Ashwani Ahlawat-(https://github.com/AshuAhlawat)
+            Ankit Kumar-(https://github.com/Anky209e)
+---------------------------------------------------------------------
+Note: Always keep your code and chrome browser updated!
+---------------------------------------------------------------------         
+"""
+print(art)
 import sys
 from script import onlineclassscript
 
@@ -33,12 +48,16 @@ except:
     pass
 
 if "help" in PEOPLE:
-    print("---------Welcome to ClassScript---------")
-    print("Follow the steps to attend class:")
-    help_man = '''(1)Open you class script folder in terminal.
-                  (2)now run python3 or python all.py args
-                  (3) arguments are :
-                   the names added in RECORD'''
+
+    help_man = '''
+    ---------Welcome to ClassScript---------
+    Follow the steps to attend class:
+    (1)Open you class script folder in terminal.
+    (2)now run python3 or python all.py args
+    (3) arguments are :
+                   the names added in RECORD
+    
+    '''
     print(help_man)
     quit()
 
